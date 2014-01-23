@@ -1,9 +1,9 @@
 // ==UserScript==
-// @name Script name here
-// @description Short description goes here
-// @namespace Manishearth (This is to avoid conflicts with userscripts that share a name)
-// @author Your name here
-// @license GNU GPL v3 (http://www.gnu.org/copyleft/gpl.html)
+// @name Cinder Client
+// @description Flag-tracker-thingy
+// @namespace Charcoal (This is to avoid conflicts with userscripts that share a name)
+// @author Charcoal Team
+// @license MIT
 // @include http://stackoverflow.com/*
 // @include http://serverfault.com/*
 // @include http://superuser.com/*
