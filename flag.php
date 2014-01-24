@@ -6,8 +6,11 @@ $inDatabase = mysql_fetch_assoc($query);
 $numInDatabase = $valid["number"];
 
 if($numInDatabase == 0){
+    $site = $_POST["site"];
+    $postid = $_POST["postid"];
+    $userid = $_POST["userid"];
     mysql_query("INSERT INTO flags (Site, PostId, AddDate, UserId, NumFlags, LastFlag)
-    VALUES (NULL, NULL, NOW(), NULL, 1, NOW())");
+    VALUES ('" . $site . "', '" . $postid . "', NOW(), '" . $userid . "', 1, NOW())");
 }
 else{
     mysql_query("UPDATE flags SET NumFlags = NumFlags + 1, LastFlag=NOW() Where Site = NULL AND PostId = NULL");
