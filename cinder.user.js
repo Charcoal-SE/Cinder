@@ -48,10 +48,6 @@ with_jquery(function($) {
 			success: function(data)
 			{
 					console.log(data);
-					var obj = eval("(" + data + ")");
-					string = string + obj["num"].toString();
-					console.log(obj["num"]);
-					console.log(string);
 			},
 		});
 	});
@@ -65,10 +61,18 @@ with_jquery(function($) {
 		{
 				console.log(data);
 				var obj = eval("(" + data + ")");
-				string = string + obj["num"].toString();
-				console.log(obj["num"]);
+				string = string + obj.length;
+				console.log(obj[1]["Site"]);
 				console.log(string);
-				$("div #sidebar").prepend(string + '</span> Network Spam</h4><ul><li><div class="favicon favicon-security" title="Information Security Stack Exchange"></div><a href="http://security.stackexchange.com/questions/49234/why-are-chips-safer-than-magnetic-stripes" class="js-gps-track" data-gps-track="site.switch({ item_type:8, target_site:162 }); posts_hot_network.click({ item_type:2, location:8 })">Buy football streaming!</a></li><li><div class="favicon favicon-stackoverflow" title="English Language &amp; Usage Stack Exchange"></div><a href="http://english.stackexchange.com/questions/147511/what-do-you-call-unclean-water-that-you-cant-see-through" class="js-gps-track" data-gps-track="site.switch({ item_type:8, target_site:97 }); posts_hot_network.click({ item_type:2, location:8 })">Please buy a new car!</a></li></ul></div>');
+
+				string = string + "</span> Network Spam</h4><ul>";
+
+				for (var i = 0; i < obj.length; i++) {
+				    string = string + "<li><div class='favicon favicon-" + obj[i]["APISiteName"] + "' title=''></div><a href='http://" + obj[i]["Site"] + "/q/" + obj[i]["PostId"] + "'>" + obj[i]["Title"] + "</a></li>";
+				}
+				string = string + "</ul></div>";
+
+				$("div #sidebar").prepend(string);
 		},
 	});
 });
