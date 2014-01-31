@@ -34,7 +34,7 @@ function with_jquery(f) {
 
 with_jquery(function($) {
 
-	var domain = "www.fakedomain.com"; //For development!
+	var domain = "www.erwaysoftware.com";
 
 	$('.post-menu').append($('<span class="lsep">|</span><a class="spam" href="javascript:void(0)" title="Mark as spam">spam</a>'));
 	$('.spam').bind("click",function(){
