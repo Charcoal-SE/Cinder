@@ -11,7 +11,7 @@
 // @include http://meta.serverfault.com/*
 // @include http://meta.superuser.com/*
 // @include http://stackapps.com/*
-// @include http://*.stackexchange.com/
+// @include http://*.stackexchange.com/*
 // @include http://askubuntu.com/*
 // @include http://meta.askubuntu.com/*
 // @include http://answers.onstartups.com/*
