@@ -10,6 +10,7 @@ $numInDatabase = $valid["number"];
 $site = $_POST["site"];
 $postid = $_POST["postid"];
 $userid = $_POST["userid"];
+$title = $_POST["title"];
 
 if($numInDatabase == 0){
     $stmt = PDODatabaseObject()->prepare("INSERT INTO flags (Site, PostId, AddDate, UserId, NumFlags, LastFlag) VALUES (?, ?, NOW(),?, 1, NOW())");

@@ -33,13 +33,16 @@ function with_jquery(f) {
 
 
 with_jquery(function($) {
+
+    var domain = "www.fakedomain.com"; //For development!
+
 	$('.post-menu').append($('<span class="lsep">|</span><a class="spam" href="javascript:void(0)" title="Mark as spam">spam</a>'));
 	$('.spam').bind("click",function(){
 		var argstring = 'site=' + StackExchange.options.site.name + "&userid=" + StackExchange.options.user.userId + "&title=" + $("div#question-header h1 a.question-hyperlink").html();
 		console.log(argstring);
 		$.ajax({
         type: "POST",
-        url: "http://www.erwaysoftware.com/cinder/flag.php",
+        url: "http://" . domain . "/cinder/flag.php",
         data: argstring,
         success: function(data)
         {
@@ -55,7 +58,7 @@ with_jquery(function($) {
 	var string = '<div id="hot-network-questions" class="module spam-list"><h4><span class="supernovabg mod-flag-indicator" style="font-size:16px">';
     $.ajax({
         type: "POST",
-        url: "http://www.erwaysoftware.com/cinder/flagged.php",
+        url: "http://" . domain . "/cinder/flagged.php",
         data: "",
         success: function(data)
         {
