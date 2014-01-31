@@ -43,7 +43,7 @@ with_jquery(function($) {
 		console.log(argstring);
 		$.ajax({
             type: "POST",
-            url: "http://" . domain . "/cinder/flag.php",
+            url: "http://" + domain + "/cinder/flag.php",
             data: argstring,
             success: function(data)
             {
@@ -59,7 +59,7 @@ with_jquery(function($) {
 	var string = '<div id="hot-network-questions" class="module spam-list"><h4><span class="supernovabg mod-flag-indicator" style="font-size:16px">';
     $.ajax({
         type: "POST",
-        url: "http://" . domain . "/cinder/flagged.php",
+        url: "http://" + domain + "/cinder/flagged.php",
         data: "",
         success: function(data)
         {
