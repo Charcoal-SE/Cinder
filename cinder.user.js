@@ -38,21 +38,22 @@ with_jquery(function($) {
 
 	$('.post-menu').append($('<span class="lsep">|</span><a class="spam" href="javascript:void(0)" title="Mark as spam">spam</a>'));
 	$('.spam').bind("click",function(){
-		var argstring = 'site=' + StackExchange.options.site.name + "&userid=" + StackExchange.options.user.userId + "&title=" + $("div#question-header h1 a.question-hyperlink").html();
+        var postid=$(this).closest('div.question,div[id^=answer]').data('questionid')||$(this).closest('div.question,div[id^=answer]').data('answerid');
+		var argstring = 'site=' + StackExchange.options.site.name + "&userid=" + StackExchange.options.user.userId + "&title=" + $("div#question-header h1 a.question-hyperlink").html() + "&postid=" + postid;
 		console.log(argstring);
 		$.ajax({
-        type: "POST",
-        url: "http://" . domain . "/cinder/flag.php",
-        data: argstring,
-        success: function(data)
-        {
-                console.log(data);
-                var obj = eval("(" + data + ")");
-                string = string + obj["num"].toString();
-                console.log(obj["num"]);
-                console.log(string);
-        },
-    });
+            type: "POST",
+            url: "http://" . domain . "/cinder/flag.php",
+            data: argstring,
+            success: function(data)
+            {
+                    console.log(data);
+                    var obj = eval("(" + data + ")");
+                    string = string + obj["num"].toString();
+                    console.log(obj["num"]);
+                    console.log(string);
+            },
+        });
 	});
 
 	var string = '<div id="hot-network-questions" class="module spam-list"><h4><span class="supernovabg mod-flag-indicator" style="font-size:16px">';
