@@ -39,7 +39,7 @@ with_jquery(function($) {
 	$('.post-menu').append($('<span class="lsep">|</span><a class="spam" href="javascript:void(0)" title="Mark as spam">spam</a>'));
 	$('.spam').bind("click",function(){
 		var postid=$(this).closest('div.question,div[id^=answer]').data('questionid')||$(this).closest('div.question,div[id^=answer]').data('answerid');
-		var argstring = 'site=' + StackExchange.options.site.name + "&userid=" + StackExchange.options.user.userId + "&title=" + encodeURIComponent($("div#question-header h1 a.question-hyperlink").html()) + "&postid=" + postid;
+		var argstring = 'site=' + window.location.host + "&userid=" + StackExchange.options.user.userId + "&title=" + encodeURIComponent($("div#question-header h1 a.question-hyperlink").html()) + "&postid=" + postid;
 		console.log(argstring);
 		$.ajax({
 			type: "POST",
