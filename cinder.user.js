@@ -35,7 +35,7 @@ function with_jquery(f) {
 with_jquery(function($) {
 	$('.post-menu').append($('<span class="lsep">|</span><a class="spam" href="javascript:void(0)" title="Mark as spam">spam</a>'));
 	$('.spam').bind("click",function(){
-		var argstring = 'site=' + StackExchange.options.site.name + "&userid=" + StackExchange.options.user.userId;
+		var argstring = 'site=' + StackExchange.options.site.name + "&userid=" + StackExchange.options.user.userId + "&title=" + $("div#question-header h1 a.question-hyperlink").html();
 		console.log(argstring);
 		$.ajax({
         type: "POST",
@@ -48,7 +48,6 @@ with_jquery(function($) {
                 string = string + obj["num"].toString();
                 console.log(obj["num"]);
                 console.log(string);
-                $("div #sidebar").prepend(string + '</span> Network Spam</h4><ul><li><div class="favicon favicon-security" title="Information Security Stack Exchange"></div><a href="http://security.stackexchange.com/questions/49234/why-are-chips-safer-than-magnetic-stripes" class="js-gps-track" data-gps-track="site.switch({ item_type:8, target_site:162 }); posts_hot_network.click({ item_type:2, location:8 })">Buy football streaming!</a></li><li><div class="favicon favicon-stackoverflow" title="English Language &amp; Usage Stack Exchange"></div><a href="http://english.stackexchange.com/questions/147511/what-do-you-call-unclean-water-that-you-cant-see-through" class="js-gps-track" data-gps-track="site.switch({ item_type:8, target_site:97 }); posts_hot_network.click({ item_type:2, location:8 })">Please buy a new car!</a></li></ul></div>');
         },
     });
 	});
