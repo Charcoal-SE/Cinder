@@ -62,8 +62,6 @@ with_jquery(function($) {
 				console.log(data);
 				var obj = eval("(" + data + ")");
 				string = string + obj.length;
-				console.log(obj[1]["Site"]);
-				console.log(string);
 
 				string = string + "</span> Network Spam</h4><ul>";
 
