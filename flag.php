@@ -3,14 +3,14 @@ header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: GET, POST');
 include "base.php";
 
-$query = mysql_query("SELECT COUNT(*) AS number FROM flags WHERE id=". $id . " ");
-$inDatabase = mysql_fetch_assoc($query);
-$numInDatabase = $valid["number"];
-
 $site = $_POST["site"];
 $postid = $_POST["postid"];
 $userid = $_POST["userid"];
 $title = $_POST["title"];
+
+$query = mysql_query("SELECT COUNT(*) AS number FROM flags WHERE PostId=". $postid . " ");
+$inDatabase = mysql_fetch_assoc($query);
+$numInDatabase = $valid["number"];
 
 if($numInDatabase == 0){
     $stmt = PDODatabaseObject()->prepare("INSERT INTO flags (Site, PostId, AddDate, UserId, NumFlags, LastFlag, Title) VALUES (?, ?, NOW(),?, 1, NOW(), ?)");
