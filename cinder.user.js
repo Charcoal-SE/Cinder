@@ -20,6 +20,7 @@
 // @include http://meta.mathoverflow.net/*
 // @include http://discuss.area51.stackexchange.com/*
 // @exclude http://chat.*/*
+// @exclude http://area51.stackexchange.com/*
 
 
 // ==/UserScript==
