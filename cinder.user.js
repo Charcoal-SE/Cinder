@@ -14,8 +14,6 @@
 // @include http://*.stackexchange.com/*
 // @include http://askubuntu.com/*
 // @include http://meta.askubuntu.com/*
-// @include http://answers.onstartups.com/*
-// @include http://meta.answers.onstartups.com/*
 // @include http://mathoverflow.net/*
 // @include http://meta.mathoverflow.net/*
 // @include http://discuss.area51.stackexchange.com/*
