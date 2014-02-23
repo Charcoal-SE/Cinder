@@ -37,6 +37,9 @@ with_jquery(function($) {
 
 	$('.post-menu').append($('<span class="lsep">|</span><a class="spam" href="javascript:void(0)" title="Mark as spam">spam</a>'));
 	$('.spam').bind("click",function(){
+		if(!confirm("Are you sure you want to flag this post as spam and submit to Cinder?")){
+			return;
+		}
 		var postid=$(this).closest('div.question,div[id^=answer]').data('questionid')||$(this).closest('div.question,div[id^=answer]').data('answerid');
 		var argstring = 'site=' + window.location.host + "&userid=" + StackExchange.options.user.userId + "&title=" + encodeURIComponent($("div#question-header h1 a.question-hyperlink").html()) + "&postid=" + postid;
 		console.log(argstring);
@@ -49,6 +52,8 @@ with_jquery(function($) {
 					console.log(data);
 			},
 		});
+		// TODO: Add some error reporting
+		$.post('/flags/posts/'+postid+'/add/PostSpam',{fkey:StackExchange.options.user.fkey});
 	});
 
 	var string = '<div id="hot-network-questions" class="module spam-list"><h4><span class="supernovabg mod-flag-indicator" style="font-size:16px">';
